@@ -1,0 +1,11 @@
+from datetime import *
+print(datetime(1999,9,17).date())
+print(datetime(1999,9,17).strftime("Mybitthday is|%Y-%m-%d|"))
+print(datetime(1999,9,17).strftime("Mybitthday is|%Y-%m-%d|,the %j in a year"))
+print(datetime(1999,9,17).strftime("in %A |%Y-%m-%d| I was born."))
+print(datetime(1999,9,17).strftime("in %a |%Y-%m-%d| I was born."))
+print(datetime(1999,9,17).strftime("in %b %a |%Y-%m-%d| I was born."))
+print(datetime(1999,9,17).strftime(" |%Y-%m-%d| I was born, in week %w,the %Wth Week in a year."))
+print(datetime(1999,9,17).strftime(" __%Y**%m**%d__ I was born, in week %w,the %Wth Week in a year."))
+print(datetime(1999,9,17).strftime(" __%Y**%m**%d__%Y.%m.%d."))
+print(datetime(1999,9,17).strftime("%Y:%m:%d."))
