@@ -5,6 +5,8 @@
  */
 package oop.shape;
 
+import static java.lang.Double.doubleToLongBits;
+
 /**
  *
  * @author Administrator
@@ -36,11 +38,12 @@ public class Circle extends  Shape {
     }
     @Override
     public String toString(){
-        
+        return "Circle："+"calculatePerimeter:"+this.calculatePerimeter()+"calculateArea:"+this.calculateArea();
     }
     @Override
     public int hashCode(){
-        
+       long f=doubleToLongBits(this.calculateArea());
+        return (int)(f^(f>>32));
     }
     @Override
     public boolean equals(Object obj) {
@@ -54,10 +57,6 @@ public class Circle extends  Shape {
             return false;
         }
         final Circle other = (Circle) obj;
-        if (Double.doubleToLongBits(this.r) != Double.doubleToLongBits(other.r)) {
-            return false;
-        }
-        return true;
+        return Double.doubleToLongBits(this.calculateArea()) == Double.doubleToLongBits(other.calculateArea());
     }
-
 }

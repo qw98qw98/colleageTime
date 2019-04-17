@@ -5,6 +5,8 @@
  */
 package oop.shape;
 
+import static java.lang.Double.doubleToLongBits;
+
 /**
  *
  * @author Administrator
@@ -13,6 +15,10 @@ public class Rectangle extends Shape{
 
     protected double a;
     protected double b;
+
+    public Rectangle() {
+        
+    }
 
     public Rectangle(double a, double b) {
         this.a = a;
@@ -35,20 +41,23 @@ public class Rectangle extends Shape{
         this.b = b;
     }
 
+    @Override
     public double calculatePerimeter() {
         return (a+b)*2;
     }
 
+    @Override
     public double calculateArea() {
         return a*b;
     }
      @Override
     public String toString(){
-        
+        return "Rectangle:"+"calculatePerimeter:"+this.calculatePerimeter()+"calculateArea:"+this.calculateArea();
     }
     @Override
     public int hashCode(){
-        
+       long f=doubleToLongBits(this.calculateArea());
+        return (int)(f^(f>>32));
     }
     @Override
     public boolean equals(Object obj) {
@@ -62,9 +71,6 @@ public class Rectangle extends Shape{
             return false;
         }
         final Circle other = (Circle) obj;
-        if (Double.doubleToLongBits(this.r) != Double.doubleToLongBits(other.r)) {
-            return false;
-        }
-        return true;
+        return Double.doubleToLongBits(this.calculateArea()) == Double.doubleToLongBits(other.calculateArea());
     }
 }

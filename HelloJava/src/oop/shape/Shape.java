@@ -10,7 +10,7 @@ package oop.shape;
  * @author Administrator
  */
 public abstract class Shape {
-    static double UNIT=1.0;
+    public static double UNIT=1.0;
     abstract public double calculateArea();
     abstract public double calculatePerimeter();
     
