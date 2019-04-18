@@ -23,21 +23,39 @@ class MyCalender:
             if today==6 or i==self.daysOfmonth():
                 yield oneweek
                 oneweek = []
-    def printCalender(self):
-        print('***************************')
-        print(f'Sun Mon Tue Wed Thu Fri Sat')
+    # def printCalender(self):
+    #     print(f"{self.date.strftime('%B     %Y'):>22}")
+    #     print('***************************')
+    #     print(f'Sun Mon Tue Wed Thu Fri Sat')
+    #     for i in self.everyWeeksOfMonth():
+    #         if i[-1] < 28:
+    #             y = ["" for x in range(7 - len(i))]
+    #             y.extend(i)
+    #             for i in y:
+    #                 print(f'{i:2}  ', end='')
+    #         else:
+    #             for j in i:
+    #                 print(f'{j:2}  ', end='')
+    #         print('\n')
+    #     print('***************************')
+    def __repr__(self):
+        str=""
+        str+=f"{self.date.strftime('%B     %Y'):>22}\n"
+        str+='***************************\n'
+        str+=f'Sun Mon Tue Wed Thu Fri Sat\n'
         for i in self.everyWeeksOfMonth():
             if i[-1] < 28:
                 y = ["" for x in range(7 - len(i))]
                 y.extend(i)
                 for i in y:
-                    print(f'{i:2}  ', end='')
+                    str+=f'{i:2}  '
             else:
                 for j in i:
-                    print(f'{j:2}  ', end='')
-            print('\n')
-        print('***************************')
+                    str+=f'{j:2}  '
+            str=str+f'\n'
+        str+='***************************\n'
+        return str
 for i in range(1,13):
     Calen=MyCalender(2018,i)
-    Calen.printCalender()
+    print(Calen)
     time.sleep(0.8)
