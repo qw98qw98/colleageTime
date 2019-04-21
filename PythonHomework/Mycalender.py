@@ -2,18 +2,21 @@ import datetime
 import time
 class MyCalender:
     def __init__(self,year,month):
-        self.year=year
-        self.month=month
-        self.date=datetime.datetime(year,month,1)
+        if 0<=year<=9999 and 1<=month<=12:
+            self.year=year
+            self.month=month
+            self.date=datetime.datetime(year,month,1)
+        else:
+            raise TypeError
     def daysOfmonth(self):
         if self.month!=12:
             x=datetime.datetime(self.year,self.month+1,1)- \
               datetime.datetime(self.year,self.month,1)
             return x.days
         else:
-             x=datetime.datetime(self.year + 1, 1, 1) -\
-               datetime.datetime(self.year,     12,1)
-             return x.days
+            x=datetime.datetime(self.year + 1, 1, 1) - \
+              datetime.datetime(self.year, 12,1)
+            return x.days
     def everyWeeksOfMonth(self):
         count=0
         oneweek = []
@@ -53,9 +56,13 @@ class MyCalender:
                 for j in i:
                     str+=f'{j:2}  '
             str=str+f'\n'
-        str+='***************************\n'
+        str+='***************************'
         return str
-for i in range(1,13):
-    Calen=MyCalender(2018,i)
-    print(Calen)
-    time.sleep(0.8)
+if __name__ == '__main__':
+    try:
+        year=(int)(input("Plase input a year : "))
+        month=(int)(input("Plase input a month : "))
+        Calen=MyCalender(year,month)
+        print(Calen)
+    except TypeError:
+        print("Error!请输入正确格式和范围!")
