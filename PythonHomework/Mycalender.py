@@ -2,7 +2,7 @@ import datetime
 import time
 class MyCalender:
     def __init__(self,year,month):
-        if 0<=year<=9999 and 1<=month<=12:
+        if 0<=year<=9998 and 1<=month<=12:
             self.year=year
             self.month=month
             self.date=datetime.datetime(year,month,1)
