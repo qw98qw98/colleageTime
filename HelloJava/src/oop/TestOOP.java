@@ -14,8 +14,8 @@ import oop.shape.*;
 public class TestOOP {
 
     public static void main(String[] args) {
-//        testClass();
-//        testEnum();
+        testClass();
+        testEnum();
         testExtemds();
     }
 public static void testEnum(){

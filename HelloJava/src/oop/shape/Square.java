@@ -12,8 +12,7 @@ package oop.shape;
 public class Square extends Rectangle{
 
     public Square(double a) {
-        this.a=a;
-        this.b=a;
+        super(a,a);
     }
     @Override
     public String toString(){
