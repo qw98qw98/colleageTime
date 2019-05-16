@@ -4,8 +4,10 @@
  * and open the template in the editor.
  */
 package oop;
+import java.util.Arrays;
 import oop.season.*;
 import oop.shape.*;
+import oop.util.Utility;
 
 /**
  *
@@ -69,5 +71,13 @@ public static void testEnum(){
         //System.out.println("chord from shape = " (new Righttriangle()=(RightTriangle)shape).calculateChord());//爸爸没有计算Chora的方法，儿子有也没有用
         rtriangle=(RightTriangle)shape;//向下转型 需要强制类型转换   shape是RightTriangle类型的
         System.out.println("chord from shape = " + rtriangle.calculateChord());//rtriangle类型拥有calculateChord独特方法
+    }
+    public static   void testOverload(){
+        int[] d1=Utility.randomNumbers(10, 10);
+        int[] d2=Utility.randomNumbers(10,50,10);
+        double[] d3=Utility.randomNumbers(3,10.0);
+        System.out.println("d1 = " + Arrays.toString(d1));
+        System.out.println("d2 = " + Arrays.toString(d2));
+        System.out.println("d3 = " + Arrays.toString(d3));
     }
 }
