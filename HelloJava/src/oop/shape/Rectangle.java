@@ -15,11 +15,7 @@ public class Rectangle extends Shape{
 
     protected double a;
     protected double b;
-
-    public Rectangle() {
-        
-    }
-
+  
     public Rectangle(double a, double b) {
         this.a = a;
         this.b = b;
