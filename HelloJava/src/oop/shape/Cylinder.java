@@ -20,7 +20,7 @@ public class Cylinder {
     }
 
     public Cylinder(double C, double D) {
-        bottom.setR(C);
+        bottom = new Circle(C);
         height = D;
     }
 
