@@ -9,13 +9,14 @@ package oop.shape;
  *
  * @author 胡浩然
  */
-public class Square extends Rectangle{
+public class Square extends Rectangle {
 
     public Square(double a) {
-        super(a,a);
+        super(a, a);
     }
+
     @Override
-    public String toString(){
-        return "Square:"+"calculatePerimeter:"+this.calculatePerimeter()+"calculateArea:"+this.calculateArea();
+    public String toString() {
+        return "Square:" + "calculatePerimeter:" + this.calculatePerimeter() + "calculateArea:" + this.calculateArea();
     }
 }

@@ -11,11 +11,11 @@ import static java.lang.Double.doubleToLongBits;
  *
  * @author Administrator
  */
-public class Rectangle extends Shape{
+public class Rectangle extends Shape {
 
     protected double a;
     protected double b;
-  
+
     public Rectangle(double a, double b) {
         this.a = a;
         this.b = b;
@@ -39,22 +39,25 @@ public class Rectangle extends Shape{
 
     @Override
     public double calculatePerimeter() {
-        return (a+b)*2;
+        return (a + b) * 2;
     }
 
     @Override
     public double calculateArea() {
-        return a*b;
+        return a * b;
     }
-     @Override
-    public String toString(){
-        return "Rectangle:"+"calculatePerimeter:"+this.calculatePerimeter()+"calculateArea:"+this.calculateArea();
-    }
+
     @Override
-    public int hashCode(){
-       long f=doubleToLongBits(this.calculateArea());
-        return (int)(f^(f>>32));
+    public String toString() {
+        return "Rectangle:" + "calculatePerimeter:" + this.calculatePerimeter() + "calculateArea:" + this.calculateArea();
     }
+
+    @Override
+    public int hashCode() {
+        long f = doubleToLongBits(this.calculateArea());
+        return (int) (f ^ (f >> 32));
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {

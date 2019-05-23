@@ -11,13 +11,15 @@ import static java.lang.Double.doubleToLongBits;
  *
  * @author Administrator
  */
-public class Triangle extends Shape{
+public class Triangle extends Shape {
 
-    protected   double a;
-    protected  double b;
-    protected  double c;
+    protected double a;
+    protected double b;
+    protected double c;
+
     public Triangle() {
     }
+
     public Triangle(double a, double b, double c) {
         this.a = a;
         this.b = b;
@@ -47,28 +49,33 @@ public class Triangle extends Shape{
     public void setC(double c) {
         this.c = c;
     }
+
     @Override
     public double calculatePerimeter() {
-        return a+b+c;
+        return a + b + c;
     }
+
     @Override
     public double calculateArea() {
-        double p=(a+b+c)/2;
-        return Math.sqrt(p*((p-a)*(p-b)*(p-c)));
+        double p = (a + b + c) / 2;
+        return Math.sqrt(p * ((p - a) * (p - b) * (p - c)));
     }
 
     public boolean isIsoscelesTriangle() {
-        return (a==b||a==c||b==c);
+        return (a == b || a == c || b == c);
     }
-     @Override
-    public String toString(){
-        return "Triangle:"+"calculatePerimeter:"+this.calculatePerimeter()+"calculateArea:"+this.calculateArea();
-    }
+
     @Override
-    public int hashCode(){
-       long f=doubleToLongBits(this.calculateArea());
-        return (int)(f^(f>>32));
+    public String toString() {
+        return "Triangle:" + "calculatePerimeter:" + this.calculatePerimeter() + "calculateArea:" + this.calculateArea();
     }
+
+    @Override
+    public int hashCode() {
+        long f = doubleToLongBits(this.calculateArea());
+        return (int) (f ^ (f >> 32));
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
