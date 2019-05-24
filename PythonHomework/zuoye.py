@@ -3,9 +3,13 @@ import random
 import time
 import jieba
 def home_work_1():
-    strs="qqwertyuiopasdfghjklzxcvbnm123456789ZXCVBNMASDFGHJKLQWERTYUIOP"
+    strs="wertyuiopasdfghjklzxcvbnm123456789ZXCVBNMASDFGHJKLQWERTYUIOP"
+    list=[]
+    for i in strs:
+        list.append(i)
+    print(list)
     for _ in range(11):
-        print("".join(random.sample(strs,10)))
+        print("".join(random.sample(list,10)))
 def home_work_2(list):
     for i in list:
         if list.count(i)>1:
@@ -23,18 +27,17 @@ def home_work_4(str):
         word, count = items[i]
         print(f"{word:<10}{count:>5}")
 def home_work_5():
-    times=1000000
+    times=100000
     count = 0
+    people = 23
+    peoplelist=[random.randint(1,365) for _ in range(1000)]
     for i in range(times):
-        people_birth=[]
-        people=23
-        for i in range(people):
-            people_birth.append(random.randint(1,366))
+        people_birth=random.sample(peoplelist,people)
         if home_work_3(people_birth):
             continue
         count+=1
     return count/times
-def home_work_5():
+def home_work_6():
     with open("红楼梦.txt","rb") as f:
         str=f.read()
         str=jieba.cut(str)
@@ -71,3 +74,5 @@ if __name__ == '__main__':
     print(home_work_4("aaaaaabbbbbbbbbvvvvvvvvfffffffffff"))
     print("作业五答案")
     print(home_work_5())
+    print("作业六答案")
+    print(home_work_6())

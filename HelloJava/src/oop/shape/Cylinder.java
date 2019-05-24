@@ -10,15 +10,18 @@ package oop.shape;
  * @author Administrator
  */
 public class Cylinder {
+
     private Circle bottom;
     private double height;
-    public Cylinder(Circle C,double D){
-        bottom=C;
-        height=D;
-    }    
-    public Cylinder(double C,double D){
-        bottom.setR(C);
-        height=D;
+
+    public Cylinder(Circle C, double D) {
+        bottom = C;
+        height = D;
+    }
+
+    public Cylinder(double C, double D) {
+        bottom = new Circle(C);
+        height = D;
     }
 
     public Circle getBottom() {
@@ -36,11 +39,13 @@ public class Cylinder {
     public void setHeight(double height) {
         this.height = height;
     }
-    public double calculateSurfaceArea(){
-        return bottom.calculatePerimeter()*getHeight();
+
+    public double calculateSurfaceArea() {
+        return bottom.calculatePerimeter() * getHeight();
     }
-    public double calculateVolume(){
-        return bottom.calculatePerimeter()*getHeight();
+
+    public double calculateVolume() {
+        return bottom.calculatePerimeter() * getHeight();
     }
-    
+
 }

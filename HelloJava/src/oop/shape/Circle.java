@@ -11,40 +11,47 @@ import static java.lang.Double.doubleToLongBits;
  *
  * @author Administrator
  */
-public class Circle extends  Shape {
-    private  double r;
+public class Circle extends Shape {
+
+    private double r;
 
     public Circle(double r) {
         this.r = r;
     }
 
     public Circle() {
-        r=1.0;
+        r = 1.0;
     }
 
     public double getR() {
         return r;
     }
+
     public void setR(double r) {
-       this.r=r;
+        this.r = r;
     }
+
     @Override
-    public double calculatePerimeter(){
-        return Math.PI*2*r;
+    public double calculatePerimeter() {
+        return Math.PI * 2 * r;
     }
+
     @Override
-    public double calculateArea(){
-        return Math.PI*r*r;
+    public double calculateArea() {
+        return Math.PI * r * r;
     }
+
     @Override
-    public String toString(){
-        return "Circle："+"calculatePerimeter:"+this.calculatePerimeter()+"calculateArea:"+this.calculateArea();
+    public String toString() {
+        return "Circle：" + "calculatePerimeter:" + this.calculatePerimeter() + "calculateArea:" + this.calculateArea();
     }
+
     @Override
-    public int hashCode(){
-       long f=doubleToLongBits(this.calculateArea());
-        return (int)(f^(f>>32));
+    public int hashCode() {
+        long f = doubleToLongBits(this.calculateArea());
+        return (int) (f ^ (f >> 32));
     }
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {

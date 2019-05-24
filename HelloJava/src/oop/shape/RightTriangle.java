@@ -11,31 +11,38 @@ import static java.lang.Double.doubleToLongBits;
  *
  * @author 胡浩然
  */
-public class RightTriangle extends Triangle{
+public class RightTriangle extends Triangle {
+
     public RightTriangle(double a, double b) {
-        this.a=a;
-        this.b=b;
+        this.a = a;
+        this.b = b;
     }
+
     @Override
     public double calculateArea() {
-        return (a*b)/2;
+        return (a * b) / 2;
     }
-    public double calculateChord(){
-        return Math.sqrt(a*a+b*b);
+
+    public double calculateChord() {
+        return Math.sqrt(a * a + b * b);
     }
+
     @Override
     public boolean isIsoscelesTriangle() {
-        return (a==b);
+        return (a == b);
     }
-     @Override
-    public String toString(){
-        return "RightTriangle:"+"calculatePerimeter:"+this.calculatePerimeter()+"calculateArea:"+this.calculateArea();
-    }
+
     @Override
-    public int hashCode(){
-       long f=doubleToLongBits(this.calculateArea());
-        return (int)(f^(f>>32));
+    public String toString() {
+        return "RightTriangle:" + "calculatePerimeter:" + this.calculatePerimeter() + "calculateArea:" + this.calculateArea();
     }
+
+    @Override
+    public int hashCode() {
+        long f = doubleToLongBits(this.calculateArea());
+        return (int) (f ^ (f >> 32));
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
