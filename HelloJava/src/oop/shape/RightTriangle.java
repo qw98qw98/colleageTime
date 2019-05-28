@@ -14,8 +14,7 @@ import static java.lang.Double.doubleToLongBits;
 public class RightTriangle extends Triangle {
 
     public RightTriangle(double a, double b) {
-        this.a = a;
-        this.b = b;
+        super(a, b, Math.sqrt(a * a + b * b));
     }
 
     @Override
@@ -24,7 +23,7 @@ public class RightTriangle extends Triangle {
     }
 
     public double calculateChord() {
-        return Math.sqrt(a * a + b * b);
+        return c;
     }
 
     @Override

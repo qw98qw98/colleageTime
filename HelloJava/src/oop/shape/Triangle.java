@@ -17,9 +17,6 @@ public class Triangle extends Shape {
     protected double b;
     protected double c;
 
-    public Triangle() {
-    }
-
     public Triangle(double a, double b, double c) {
         this.a = a;
         this.b = b;
