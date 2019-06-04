@@ -6,16 +6,17 @@
 package oop.abilty.impl;
 
 import oop.abilty.Carnivorous;
+import oop.abilty.Flyable;
 
 /**
  *
  * @author Administrator
  */
-public class Plane implements Carnivorous {
+public class Plane implements Flyable {
 
     @Override
-    public void eat() {
+    public void fly() {
         System.out.println("Planes fly by pilots");
     }
 
-}
+    }

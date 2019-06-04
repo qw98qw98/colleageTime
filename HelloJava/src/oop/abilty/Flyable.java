@@ -9,7 +9,7 @@ package oop.abilty;
  *
  * @author Administrator
  */
-public interface Flyable extends Eatable {
+public interface Flyable {
 
     void fly();
 }

@@ -6,8 +6,10 @@
 package oop;
 
 import java.util.Arrays;
+import oop.abilty.Eatable;
 import oop.abilty.impl.Plane;
 import oop.abilty.impl.Rabbit;
+import oop.abilty.impl.Sparrow;
 import oop.abilty.impl.Tiger;
 import oop.season.*;
 import oop.shape.*;
@@ -20,20 +22,25 @@ import oop.util.Utility;
 public class TestOOP {
 
     public static void main(String[] args) {
-        testClass();
-        testEnum();
-        testExtemds();
+//        testClass();
+//        testEnum();
+//        testExtemds();
+        testImplements();
     }
-    public static void testImplements(){
-        Tiger tiger=new Tiger();
-        Rabbit rabbit =new Rabbit();
-        Plane plane=new Plane();
+
+    public static void testImplements() {
+        Tiger tiger = new Tiger();
+        Rabbit rabbit = new Rabbit();
+        Plane plane = new Plane();
+        Sparrow sprrow = new Sparrow();
         tiger.eat();
         rabbit.eat();
         plane.fly();
-        
-        
+        sprrow.eat();
+        sprrow.fly();;
+
     }
+
     public static void testEnum() {
         for (Season season : Season.values()) {
             System.out.print(season + " -- ");
