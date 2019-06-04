@@ -9,7 +9,13 @@ package oop.abilty;
  *
  * @author Administrator
  */
-public interface Flyable extends Eatable {
+public interface Carnivorous extends Eatable {
 
-    void fly();
+    /**
+     *
+     * @return
+     */
+    default String getType() {
+        return Eatable.TYPE_CARNIVOROUS;
+    }
 }

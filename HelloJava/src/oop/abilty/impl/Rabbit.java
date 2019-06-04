@@ -3,13 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package oop.abilty;
+package oop.abilty.impl;
+
+import oop.abilty.Vegetarian;
 
 /**
  *
  * @author Administrator
  */
-public interface Flyable extends Eatable {
+public class Rabbit implements Vegetarian {
 
-    void fly();
+    @Override
+    public void eat() {
+        System.out.println("Rabbits eat green grass");
+    }
+
 }

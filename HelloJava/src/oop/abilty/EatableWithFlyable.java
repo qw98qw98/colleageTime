@@ -9,7 +9,8 @@ package oop.abilty;
  *
  * @author Administrator
  */
-public interface Flyable extends Eatable {
+public interface EatableWithFlyable extends Eatable, Flyable {
 
-    void fly();
+    double G = 9.8;
+
 }
