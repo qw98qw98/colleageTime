@@ -7,6 +7,9 @@ package gui.view;
 
 import com.sun.glass.events.KeyEvent;
 import static hellojava.HelloJava1.usingFor;
+import hellojava.HelloJava3;
+import java.util.Arrays;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -129,8 +132,8 @@ public class HelloJava extends javax.swing.JDialog {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -157,11 +160,35 @@ public class HelloJava extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
+//        try {
+//
+//            int n = Integer.parseInt(jTextField1.getText());
+////                System.out.println(n);
+//            String ans = Double.toString(usingFor(n));
+////                String ans1 = String.valueOf(usingFor(n));
+//            jTextField2.setText(ans);
+//
+//        } catch (java.lang.NumberFormatException ex) {
+//
+//            System.out.println("Wrong! " + ex.getMessage());
+//        }
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
-        // TODO add your handling code here:
+        try {
+            int n = Integer.parseInt(jTextField3.getText());
+//                System.out.println(n);
+            int[][] a = HelloJava3.generateData(n);
+            String ans = new String("");
+            for (int[] x : a) {
+                ans += Arrays.toString(x) + "\n";
+            }
+//                String ans1 = String.valueOf(usingFor(n));
+            jTextAreaResult3.setText(ans);
+        } catch (NumberFormatException numberFormatException) {
+            JOptionPane.showConfirmDialog(this, "输入错误，请重新输入！");
+            jTextField3.setText("");
+        }
     }//GEN-LAST:event_jTextField3ActionPerformed
 
     private void jTextField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyPressed
@@ -170,11 +197,13 @@ public class HelloJava extends javax.swing.JDialog {
                 int n = Integer.parseInt(jTextField1.getText());
 //                System.out.println(n);
                 String ans = Double.toString(usingFor(n));
+//                String ans1 = String.valueOf(usingFor(n));
                 jTextField2.setText(ans);
             }
         } catch (java.lang.NumberFormatException ex) {
-            ex.getMessage();
-            System.out.println("Wrong");
+
+            JOptionPane.showConfirmDialog(this,"数据格式非法！请重新输入！");
+            jTextField1.setText("");
         }
     }//GEN-LAST:event_jTextField1KeyPressed
 
