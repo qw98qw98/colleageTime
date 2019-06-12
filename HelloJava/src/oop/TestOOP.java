@@ -11,6 +11,7 @@ import oop.abilty.impl.Plane;
 import oop.abilty.impl.Rabbit;
 import oop.abilty.impl.Sparrow;
 import oop.abilty.impl.Tiger;
+import oop.exception.NotTriangleException;
 import oop.season.*;
 import oop.shape.*;
 import oop.util.Utility;
@@ -24,8 +25,23 @@ public class TestOOP {
     public static void main(String[] args) {
 //        testClass();
 //        testEnum();
-//        testExtemds();
+        testCombination();
+        testExtends();
         testImplements();
+        testOverload();
+        testException();
+    }
+
+    public static void testException() {
+
+        try {
+            Triangle t1 = new Triangle(3, 4, 5);
+            System.out.println("t1 = " + t1);
+            Triangle t2 = new Triangle(1, 2, 3);
+            System.out.println("t2 = " + t2);
+        } catch (NotTriangleException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     public static void testImplements() {
@@ -84,7 +100,7 @@ public class TestOOP {
         System.out.println(cylinder.calculateVolume());
     }
 
-    public static void testExtemds() {
+    public static void testExtends() {
         Circle circle = new Circle(Shape.UNIT);
         RightTriangle rtriangle = new RightTriangle(Shape.UNIT, Shape.UNIT);
         Square square = new Square(Shape.UNIT);
@@ -92,22 +108,22 @@ public class TestOOP {
         System.out.println("circle = " + circle);
         System.out.println("chord of rtriangle = " + rtriangle.calculateChord());
         System.out.println("Isosceles triangle = " + rtriangle.isIsoscelesTriangle());
-        Shape shape;//新建一个爸爸
-        shape = circle;//把儿子赋给爸爸无需强制类型转换 泛型思想
+        Shape shape;
+        shape = circle;
         System.out.println("shape = " + shape);
-        shape = square;//把儿子赋给爸爸
+        shape = square;
         System.out.println("shape = " + shape);
-        shape = rtriangle;//把儿子赋给爸爸
+        shape = rtriangle;
         System.out.println("shape = " + shape);
-        System.out.println("area of shape = " + shape.calculateArea());//爸爸拥有计算面积和周长的方法
+        System.out.println("area of shape = " + shape.calculateArea());
         //System.out.println("chord from shape = " (new Righttriangle()=(RightTriangle)shape).calculateChord());//爸爸没有计算Chora的方法，儿子有也没有用
-        rtriangle = (RightTriangle) shape;//向下转型 需要强制类型转换   shape是RightTriangle类型的
-        System.out.println("chord from shape = " + rtriangle.calculateChord());//rtriangle类型拥有calculateChord独特方法
+        rtriangle = (RightTriangle) shape;
+        System.out.println("chord from shape = " + rtriangle.calculateChord());
     }
 
     public static void testOverload() {
         int[] d1 = Utility.randomNumbers(10, 10);
-        int[] d2 = Utility.randomNumbers(10, 50, 10);
+        int[] d2 = Utility.randomNumbers(10, 5, 50);
         double[] d3 = Utility.randomNumbers(3, 10.0);
         System.out.println("d1 = " + Arrays.toString(d1));
         System.out.println("d2 = " + Arrays.toString(d2));
