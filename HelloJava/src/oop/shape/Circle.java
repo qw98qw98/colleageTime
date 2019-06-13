@@ -43,7 +43,7 @@ public class Circle extends Shape {
 
     @Override
     public String toString() {
-        return "Circle：" + "calculatePerimeter:" + this.calculatePerimeter() + "calculateArea:" + this.calculateArea();
+        return "Circle：" + "calculatePerimeter: " + this.calculatePerimeter() + "calculateArea: " + this.calculateArea();
     }
 
     @Override

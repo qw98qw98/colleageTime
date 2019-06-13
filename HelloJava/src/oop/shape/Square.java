@@ -17,6 +17,6 @@ public class Square extends Rectangle {
 
     @Override
     public String toString() {
-        return "Square:" + "calculatePerimeter:" + this.calculatePerimeter() + "calculateArea:" + this.calculateArea();
+        return "Square:" + "calculatePerimeter: " + this.calculatePerimeter() + "calculateArea: " + this.calculateArea();
     }
 }
