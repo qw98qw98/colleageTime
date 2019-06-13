@@ -17,7 +17,7 @@ import oop.shape.Triangle;
  * @author Administrator
  */
 public class OOP extends javax.swing.JDialog {
-    
+
     private int index;
     private static final String[] MSG = {
         "请选择图形",
@@ -151,6 +151,10 @@ public class OOP extends javax.swing.JDialog {
     }//GEN-LAST:event_jTextFieldParaActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
+        if (index <= 0) {
+            return;
+        }
         try {
             String data = jTextFieldPara.getText();
             Scanner input = new Scanner(data);
@@ -193,6 +197,7 @@ public class OOP extends javax.swing.JDialog {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jComboBoxShapeItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxShapeItemStateChanged
+        jButton1.setEnabled(index > 0);
         index = jComboBoxShape.getSelectedIndex();
         jTextFieldPara.setText(MSG[index]);
         System.out.println(index);
