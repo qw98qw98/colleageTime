@@ -49,7 +49,7 @@ public class Rectangle extends Shape {
 
     @Override
     public String toString() {
-        return "Rectangle:" + "calculatePerimeter:" + this.calculatePerimeter() + "calculateArea:" + this.calculateArea();
+        return "Rectangle:" + "calculatePerimeter: " + this.calculatePerimeter() + "calculateArea: " + this.calculateArea();
     }
 
     @Override

@@ -33,7 +33,7 @@ public class RightTriangle extends Triangle {
 
     @Override
     public String toString() {
-        return "RightTriangle:" + "calculatePerimeter:" + this.calculatePerimeter() + "calculateArea:" + this.calculateArea();
+        return "RightTriangle:" + "calculatePerimeter: " + this.calculatePerimeter() + "calculateArea: " + this.calculateArea();
     }
 
     @Override
