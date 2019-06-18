@@ -245,10 +245,14 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItemBgActionPerformed
 
     private void jMenuItemAboutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemAboutActionPerformed
+        about();
+    }//GEN-LAST:event_jMenuItemAboutActionPerformed
+
+    private void about() {
         About about = new About(this, true);
         about.setLocationRelativeTo(this);
         about.setVisible(true);
-    }//GEN-LAST:event_jMenuItemAboutActionPerformed
+    }
 
     private void jMenuItemHelloJavaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemHelloJavaActionPerformed
         hellojava();
@@ -273,7 +277,7 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItemOOPActionPerformed
 
     private void jButtonAboutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAboutActionPerformed
-        // TODO add your handling code here:
+        about();
     }//GEN-LAST:event_jButtonAboutActionPerformed
 
     private void oop() {
