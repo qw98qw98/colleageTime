@@ -12,9 +12,9 @@ package oop.exception;
 public class TestException {
     public static void main(String[] args) {
         try {
-            String s = 123;
-            int d = Integer.parseInt(s);
-            System.out.println("d = " + d);
+           // String s = 123;
+            //int d = Integer.parseInt(s);
+          //  System.out.println("d = " + d);
         } catch (RuntimeException ex) {
             System.out.println("输入异常");
         }

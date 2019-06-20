@@ -150,7 +150,6 @@
     <Property name="autoRequestFocus" type="boolean" value="false"/>
   </Properties>
   <AccessibilityProperties>
-    <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="&#x80e1;&#x6d69;&#x7136;"/>
     <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value=""/>
   </AccessibilityProperties>
   <SyntheticProperties>
@@ -385,6 +384,7 @@
             </Property>
             <Property name="text" type="java.lang.String" value="&#x70b9;&#x51fb;"/>
             <Property name="toolTipText" type="java.lang.String" value="&#x6211;&#x662f;&#x4e00;&#x4e2a;&#x6309;&#x94ae;&#x63a7;&#x4ef6;&#x3002;"/>
+            <Property name="focusable" type="boolean" value="false"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
@@ -434,7 +434,6 @@
         <Component class="javax.swing.JToggleButton" name="jToggleButton1">
           <Properties>
             <Property name="text" type="java.lang.String" value="jToggleButton"/>
-            <Property name="focusable" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
             <Property name="verticalTextPosition" type="int" value="3"/>
           </Properties>

@@ -5,9 +5,18 @@
  */
 package gui.view;
 
+import java.awt.Color;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Random;
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.Timer;
 
 /**
  *
@@ -20,7 +29,41 @@ public class Main extends javax.swing.JFrame {
      */
     public Main() {
         initComponents();
+        ActionListener TimerAction = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Date date = new Date();
+                SimpleDateFormat f = new SimpleDateFormat("HH:mm:ss");
+                Time.setText(f.toString());
+            }
+        };//匿名内部类
+        Timer timer = new Timer(10, (evt) -> {
+            Date date = new Date();
+            SimpleDateFormat f = new SimpleDateFormat("HH:mm:ss");
+            Time.setText(f.format(date));
+        });//lambda表达式   
+        timer.start();
+//        Timer timer1 = new Timer(1000, e -> {
+//            bg.setIcon(null);
+//            Random rd = new Random();
+//            int r = rd.nextInt(256);
+//            int g = rd.nextInt(256);
+//            int b = rd.nextInt(256);
+//            Color color = new Color(r, g, b);
+//            bg.setBackground(color);
+//            bg.setOpaque(true);
+//        });
+//        timer1.start();
     }
+
+    private class TimerAction implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+
+        }
+
+    }//内部类
 
     private void exit() {
         int opt = JOptionPane.showConfirmDialog(this, "确认要退出系统吗?");
@@ -59,15 +102,27 @@ public class Main extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         jMenuItemAbout = new javax.swing.JMenuItem();
 
-        jPopupMenu1.setToolTipText("现实背景信息");
+        jPopupMenu1.setToolTipText("显示背景信息");
+        jPopupMenu1.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
+            public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
+            }
+            public void popupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {
+            }
+            public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {
+                jPopupMenu1PopupMenuWillBecomeVisible(evt);
+            }
+        });
 
-        jMenuItemBg.setText("jMenuItem1");
+        jMenuItemBg.setText("显示背景信息");
         jMenuItemBg.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItemBgActionPerformed(evt);
             }
         });
         jPopupMenu1.add(jMenuItemBg);
+        jMenuItemBg.getAccessibleContext().setAccessibleName("");
+
+        jPopupMenu1.getAccessibleContext().setAccessibleName("显示背景信息");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("胡浩然");
@@ -84,7 +139,9 @@ public class Main extends javax.swing.JFrame {
         jToolBar1.setInheritsPopupMenu(true);
         jToolBar1.setName(""); // NOI18N
 
-        jButtonHelloJava.setText("HelloJava");
+        jButtonHelloJava.setMnemonic('F');
+        jButtonHelloJava.setText("HelloJava(F)");
+        jButtonHelloJava.setDisplayedMnemonicIndex(3);
         jButtonHelloJava.setFocusable(false);
         jButtonHelloJava.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButtonHelloJava.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -96,7 +153,8 @@ public class Main extends javax.swing.JFrame {
         jToolBar1.add(jButtonHelloJava);
         jToolBar1.add(filler2);
 
-        jButtonOOP.setText("OOP");
+        jButtonOOP.setMnemonic('H');
+        jButtonOOP.setText("OOP(H)");
         jButtonOOP.setFocusable(false);
         jButtonOOP.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButtonOOP.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -121,6 +179,14 @@ public class Main extends javax.swing.JFrame {
 
         bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/view/background_1.JPG"))); // NOI18N
         bg.setToolTipText("");
+        bg.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bgMouseClicked(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                bgMouseReleased(evt);
+            }
+        });
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -140,7 +206,7 @@ public class Main extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 422, Short.MAX_VALUE)
                 .addComponent(Time, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39))
         );
@@ -151,7 +217,7 @@ public class Main extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(Time, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(16, 16, 16))
+                .addContainerGap())
         );
 
         jMenu1.setText("功能");
@@ -210,17 +276,18 @@ public class Main extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jToolBar1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(bg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 641, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bg, javax.swing.GroupLayout.PREFERRED_SIZE, 640, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(bg)
+                .addComponent(bg, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -241,7 +308,10 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonOOPActionPerformed
 
     private void jMenuItemBgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemBgActionPerformed
-        // TODO add your handling code here:
+        Color background = bg.getBackground();
+        Icon icon = bg.getIcon();
+        String info = String.format("%s\n%s", background, icon);
+        JOptionPane.showMessageDialog(this, info);
     }//GEN-LAST:event_jMenuItemBgActionPerformed
 
     private void jMenuItemAboutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemAboutActionPerformed
@@ -279,6 +349,29 @@ public class Main extends javax.swing.JFrame {
     private void jButtonAboutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAboutActionPerformed
         about();
     }//GEN-LAST:event_jButtonAboutActionPerformed
+
+    private void bgMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bgMouseReleased
+        if (evt.isPopupTrigger()) {
+            jPopupMenu1.show(bg, evt.getX(), evt.getY());
+        }
+    }//GEN-LAST:event_bgMouseReleased
+
+    private void bgMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bgMouseClicked
+        if (evt.getButton() == MouseEvent.BUTTON1 && evt.isControlDown() && evt.isShiftDown() && evt.getClickCount() == 3) {
+            bg.setIcon(null);
+            Random rd = new Random();
+            int r = rd.nextInt(256);
+            int g = rd.nextInt(256);
+            int b = rd.nextInt(256);
+            Color color = new Color(r, g, b);
+            bg.setBackground(color);
+            bg.setOpaque(true);
+        }
+    }//GEN-LAST:event_bgMouseClicked
+
+    private void jPopupMenu1PopupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_jPopupMenu1PopupMenuWillBecomeVisible
+        jMenuItemBg.setEnabled(false);
+    }//GEN-LAST:event_jPopupMenu1PopupMenuWillBecomeVisible
 
     private void oop() {
         OOP oop = new OOP(this, true);

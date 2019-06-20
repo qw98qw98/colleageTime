@@ -5,6 +5,8 @@
  */
 package gui.exer;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author SSH
@@ -16,6 +18,9 @@ public class MyJFrame extends javax.swing.JFrame {
      */
     public MyJFrame() {
         initComponents();
+        jButton1.addActionListener((evt)->{
+            JOptionPane.showConfirmDialog(this,"你好");
+        });
     }
 
     /**
@@ -167,6 +172,7 @@ public class MyJFrame extends javax.swing.JFrame {
         jButton1.setForeground(java.awt.Color.magenta);
         jButton1.setText("点击");
         jButton1.setToolTipText("我是一个按钮控件。");
+        jButton1.setFocusable(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -186,7 +192,6 @@ public class MyJFrame extends javax.swing.JFrame {
         jToolBar1.setRollover(true);
 
         jToggleButton1.setText("jToggleButton");
-        jToggleButton1.setFocusable(false);
         jToggleButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jToggleButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(jToggleButton1);
@@ -378,7 +383,6 @@ public class MyJFrame extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        getAccessibleContext().setAccessibleName("胡浩然");
         getAccessibleContext().setAccessibleDescription("");
 
         pack();
