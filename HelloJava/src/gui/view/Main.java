@@ -7,6 +7,7 @@ package gui.view;
 
 import java.awt.Color;
 import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -29,42 +30,13 @@ public class Main extends javax.swing.JFrame {
      */
     public Main() {
         initComponents();
-        ActionListener TimerAction = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Date date = new Date();
-                SimpleDateFormat f = new SimpleDateFormat("HH:mm:ss");
-                Time.setText(f.toString());
-            }
-        };//匿名内部类
         Timer timer = new Timer(10, (evt) -> {
             Date date = new Date();
             SimpleDateFormat f = new SimpleDateFormat("HH:mm:ss");
             Time.setText(f.format(date));
         });//lambda表达式   
         timer.start();
-//        Timer timer1 = new Timer(1000, e -> {
-//            bg.setIcon(null);
-//            Random rd = new Random();
-//            int r = rd.nextInt(256);
-//            int g = rd.nextInt(256);
-//            int b = rd.nextInt(256);
-//            Color color = new Color(r, g, b);
-//            bg.setBackground(color);
-//            bg.setOpaque(true);
-//        });
-//        timer1.start();
     }
-
-    private class TimerAction implements ActionListener {
-
-        @Override
-        public void actionPerformed(ActionEvent e) {
-
-        }
-
-    }//内部类
-
     private void exit() {
         int opt = JOptionPane.showConfirmDialog(this, "确认要退出系统吗?");
         if (opt == JOptionPane.YES_OPTION) {
@@ -88,7 +60,7 @@ public class Main extends javax.swing.JFrame {
         filler2 = new javax.swing.Box.Filler(new java.awt.Dimension(8, 0), new java.awt.Dimension(8, 0), new java.awt.Dimension(8, 32767));
         jButtonOOP = new javax.swing.JButton();
         filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(32767, 0));
-        jButtonAbout = new javax.swing.JButton();
+        jButtonAbout1 = new javax.swing.JButton();
         bg = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -126,7 +98,9 @@ public class Main extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("胡浩然");
-        setIconImages(null);
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setIconImage(Toolkit.getDefaultToolkit().createImage(getClass().getResource("/gui/view/MyIcon.png")));
+        setModalExclusionType(java.awt.Dialog.ModalExclusionType.TOOLKIT_EXCLUDE);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
@@ -166,16 +140,16 @@ public class Main extends javax.swing.JFrame {
         jToolBar1.add(jButtonOOP);
         jToolBar1.add(filler1);
 
-        jButtonAbout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/view/MyIcon.png"))); // NOI18N
-        jButtonAbout.setFocusable(false);
-        jButtonAbout.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButtonAbout.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButtonAbout.addActionListener(new java.awt.event.ActionListener() {
+        jButtonAbout1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/view/MyIcon.png"))); // NOI18N
+        jButtonAbout1.setFocusable(false);
+        jButtonAbout1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButtonAbout1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButtonAbout1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonAboutActionPerformed(evt);
+                jButtonAbout1ActionPerformed(evt);
             }
         });
-        jToolBar1.add(jButtonAbout);
+        jToolBar1.add(jButtonAbout1);
 
         bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/view/background_1.JPG"))); // NOI18N
         bg.setToolTipText("");
@@ -346,10 +320,6 @@ public class Main extends javax.swing.JFrame {
         oop();
     }//GEN-LAST:event_jMenuItemOOPActionPerformed
 
-    private void jButtonAboutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAboutActionPerformed
-        about();
-    }//GEN-LAST:event_jButtonAboutActionPerformed
-
     private void bgMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bgMouseReleased
         if (evt.isPopupTrigger()) {
             jPopupMenu1.show(bg, evt.getX(), evt.getY());
@@ -372,6 +342,10 @@ public class Main extends javax.swing.JFrame {
     private void jPopupMenu1PopupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_jPopupMenu1PopupMenuWillBecomeVisible
         jMenuItemBg.setEnabled(false);
     }//GEN-LAST:event_jPopupMenu1PopupMenuWillBecomeVisible
+
+    private void jButtonAbout1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAbout1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonAbout1ActionPerformed
 
     private void oop() {
         OOP oop = new OOP(this, true);
@@ -421,7 +395,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel bg;
     private javax.swing.Box.Filler filler1;
     private javax.swing.Box.Filler filler2;
-    private javax.swing.JButton jButtonAbout;
+    private javax.swing.JButton jButtonAbout1;
     private javax.swing.JButton jButtonHelloJava;
     private javax.swing.JButton jButtonOOP;
     private javax.swing.JLabel jLabel1;
